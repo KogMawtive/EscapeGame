@@ -1,3 +1,4 @@
+    body {  
       margin: 0;
       font-family: 'Arial', sans-serif;
       background: url('fond_num.jpg') no-repeat center center/cover;
@@ -49,3 +50,4 @@
         transform: translate(-50%, -50%); /* centre exactement */
         width: 300px;
     }
+
