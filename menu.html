@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Escape Game</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("C:\EFREI\fond_num.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #0f0;
+    }
+
+    .menu {
+      background: rgba(0,0,0,0.7);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px #0f0;
+    }
+
+    .menu h1 {
+      margin-bottom: 30px;
+      font-size: 2em;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    .btn {
+      display: block;
+      margin: 15px auto;
+      padding: 15px 40px;
+      font-size: 18px;
+      background: #111;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      color: #0f0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #0f0;
+      color: #111;
+      transform: scale(1.05);
+    }
+
+    /* Fenêtres modales (contrôle, crédits) */
+    .modal {
+      display: none; /* caché par défaut */
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.9);
+      padding: 20px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      width: 400px;
+      max-width: 80%;
+      text-align: center;
+      box-shadow: 0 0 20px #0f0;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+    }
+
+    .close {
+      margin-top: 15px;
+      background: #0f0;
+      color: #111;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .close:hover {
+      background: #090;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <h1>Escape Game</h1>
+    <button class="btn" onclick="jouer()">Jouer</button>
+    <button class="btn" onclick="quitter()">Quitter</button>
+    <button class="btn" onclick="ouvrirModal('controls')">Contrôles</button>
+    <button class="btn" onclick="ouvrirModal('credits')">Crédits</button>
+  </div>
+
+  <!-- Modale Contrôles -->
+  <div id="controls" class="modal">
+    <h2>Contrôles</h2>
+    <p>🖱️ Déplacer les objets avec la souris<br>
+       ⌨️ Entrer les codes avec le clavier</p>
+    <button class="close" onclick="fermerModal('controls')">Fermer</button>
+  </div>
+
+  <!-- Modale Crédits -->
+  <div id="credits" class="modal">
+    <h2>Crédits</h2>
+    <p>Créé par : Gauthier DUBOIS<br>
+        Léo TESSIER<br>
+    <button class="close" onclick="fermerModal('credits')">Fermer</button>
+  </div>
+
+  <script>
+    function jouer() {
+      // Ici tu peux rediriger vers ta "room" ou lancer ton JS du jeu
+      window.location.href = "mainEG.js"; 
+    }
+
+    function quitter() {
+      // Les navigateurs bloquent window.close() si la page n’a pas été ouverte par JS
+      if (confirm("Voulez-vous vraiment quitter ?")) {
+        window.close(); 
+      }
+    }
+
+    function ouvrirModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function fermerModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+</body>
+</html>
