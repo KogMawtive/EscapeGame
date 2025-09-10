@@ -81,9 +81,9 @@ async function demarrerJeu() {
     const urls = [
       "lit.png",
       "coffre.png",
-      "glaçon.png",
+      "glaçon.webp",
       "mur.png",
-      "soleil.png"
+      "soleil.webp"
       "cle.png"
     ];
 
@@ -103,5 +103,6 @@ async function demarrerJeu() {
     console.error(err.message);
   }
 }
+
 
 
