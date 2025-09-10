@@ -84,6 +84,7 @@ async function demarrerJeu() {
       "glaçon.png",
       "mur.png",
       "soleil.png"
+      "cle.png"
     ];
 
     // Crée un tableau de promesses
@@ -102,3 +103,4 @@ async function demarrerJeu() {
     console.error(err.message);
   }
 }
+
