@@ -3,64 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Escape Game - Mission Secrète</title>
-  <style>
-
-    
-
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('fond_num.jpg') no-repeat center center/cover;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Barre de progression */
-    #progress-bar {
-      width: 100%;
-      height: 20px;
-      background: #111;
-      border-bottom: 2px solid #0f0;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-    #progress {
-      width: 40%; /* exemple : progression en cours */
-      height: 100%;
-      background: linear-gradient(90deg, #0f0, #090);
-      transition: width 1s;
-    }
-
-    /* Objets interactifs */
-     .object {
-      position: absolute;
-      cursor: grab;
-      user-select: none;
-      transition: transform 0.2s;
-    }
-    .object:active {
-      cursor: grabbing;
-      transform: scale(1.05);
-    }
-
-    #bed { top: 200px; left: 100px; width: 300px; }
-    #chest { bottom: 100px; right: 300px; width: 120px; }
-    #ice { top: 500px; right: 400px; width: 100px; }
-    #wall { top: 0 px; left: 0 px; width: 300px; }
-    #soleil { top: 0px; right: 0px; width: 400px; }
-    
-
-    #wall {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%); /* centre exactement */
-        width: 300px;
-    }
-
-  </style>
+  
 </head>
 <body>
   <!-- Barre de progression -->
@@ -74,47 +17,8 @@
   <img id="soleil" class="object" src="C:\EFREI\soleil.webp" alt="Soleil">
   <img id="cle" class="object" src="C:\EFREI\cle.png" alt="Clé">
 
-<script>
 
-    const IH = window.innerHeight;
-    const IW = window.innerWidth;
-
-    const wall = document.getElementById("wall");
-
-    wall.style.left = (IW / 2) + "px"
-    wall.style.top = (IH / 2) + "px"
-
-
-    // Fonction drag & drop basique
-    const objects = document.querySelectorAll('.object');
-
-    objects.forEach(obj => {
-      obj.addEventListener('mousedown', startDrag);
-    });
-
-    let current = null;
-    let offsetX, offsetY;
-
-    function startDrag(e) {
-      current = e.target;
-      offsetX = e.clientX - current.offsetLeft;
-      offsetY = e.clientY - current.offsetTop;
-      document.addEventListener('mousemove', drag);
-      document.addEventListener('mouseup', stopDrag);
-    }
-
-    function drag(e) {
-      if (!current) return;
-      current.style.left = (e.clientX - offsetX) + 'px';
-      current.style.top = (e.clientY - offsetY) + 'px';
-    }
-
-    function stopDrag() {
-      document.removeEventListener('mousemove', drag);
-      document.removeEventListener('mouseup', stopDrag);
-      current = null;
-    }
-  </script>
 </body>
 </html>
+
 
