@@ -3,19 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/83d4615a65.js" crossorigin="anonymous"></script>
+    <script src="scripts/main.js" defer></script>
     <title>Escape Game - Mission Secrète</title>
   </head>
   <body>
-    <!-- Barre de progression -->
-    <div id="progress-bar"><div id="progress"></div></div>
-
-    <!-- Objets -->
-    <img id="bed" class="object" src="img/lit.png" alt="Lit">
-    <img id="chest" class="object" src="img/coffre.png" alt="Coffre">
-    <img id="ice" class="object" src="img/glaçon.webp" alt="Glaçon">
-    <img id="wall" class="objectPasDeplacable" src="img/mur.png" alt="Mur">
-    <img id="soleil" class="object" src="img/soleil.webp" alt="Soleil">
-    <img id="cle" class="object" src="img/cle.png" alt="Clé">
+    <h1 style="text-align: center;">Escape Game</h1>
+    <div class="section-game">
+      <div class="inventory" id="inventory">
+        <h3>Inventory</h3>
+        <div class="inv-list" id="inv-list"></div>
+      </div>
+      <div>
+        <div class="game-window" id="game">
+          <div class="scene" id="scene">
+            <!-- Entity -->
+            <div class="bed" id="bed"></div>
+            <div class="chest" id="chest"></div>
+            <div class="ice" id="ice"></div>
+            <div class="sun" id="sun"></div>
+            <div class="wall" id="wall"></div>
+          </div>
+        </div>
+        <p>Click to interact object to move around</p>
+      </div>
+      <div class="computer" id="computer">
+        <i class="fa-solid fa-laptop fa-8x"></i>
+        <form>
+          <label for="code">Enter the code:</label>
+          <input type="text" id="code" name="code">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
   </body>
 </html>
