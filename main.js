@@ -58,3 +58,47 @@ function revealObjectUnderBed() {
   hidden.style.left = bedStart.left + "px";
   hidden.style.top = bedStart.top + "px";
   hidden.style.width = "80px";
+}
+
+function chargerRessource(url) {
+  return new Promise((resolve, reject) => {
+    const ressource = new Image();
+
+    ressource.onload = () => {
+      resolve(ressource); // renvoie l’objet image prêt à être utilisé
+    };
+    ressource.onerror = () => {
+      reject(new Error(`Échec du chargement: ${url}`));
+    };
+
+    ressource.src = url;
+  });
+}
+
+async function demarrerJeu() {
+  try {
+    // Tableau d'URLs des ressources
+    const urls = [
+      "lit.png",
+      "coffre.png",
+      "glaçon.png",
+      "mur.png",
+      "soleil.png"
+    ];
+
+    // Crée un tableau de promesses
+    const promesses = urls.map(url => chargerRessource(url));
+
+    // Attends que toutes les promesses soient résolues
+    const images = await Promise.all(promesses);
+
+    // Les images sont disponibles dans "images" dans le même ordre que "urls"
+    images.forEach(img => {
+      document.body.appendChild(img);
+    });
+
+    console.log("Toutes les images sont chargées !");
+  } catch (err) {
+    console.error(err.message);
+  }
+}
