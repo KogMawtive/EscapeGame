@@ -85,6 +85,8 @@ async function demarrerJeu() {
       "mur.png",
       "soleil.webp"
       "cle.png"
+      "binaire.png"
+      "coffre_ouvert.png"
     ];
 
     // Crée un tableau de promesses
@@ -103,6 +105,7 @@ async function demarrerJeu() {
     console.error(err.message);
   }
 }
+
 
 
 
