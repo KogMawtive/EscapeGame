@@ -9,6 +9,12 @@ wall.style.top = (IH / 2) + "px"
 // Fonction drag & drop basique
 const objects = document.querySelectorAll('.object');
 
+// Sauvegarde de la position initiale du lit
+const bed = document.getElementById("bed");
+const bedStart = { left: bed.offsetLeft, top: bed.offsetTop };
+let bedMoved = false; // pour savoir si le lit a déjà été déplacé
+
+
 objects.forEach(obj => {
   obj.addEventListener('mousedown', startDrag);
 });
@@ -28,10 +34,27 @@ function drag(e) {
   if (!current) return;
   current.style.left = (e.clientX - offsetX) + 'px';
   current.style.top = (e.clientY - offsetY) + 'px';
+  // Vérifie si c'est le lit et s'il a été déplacé pour la première fois
+  if (current.id === "bed" && !bedMoved) {
+    bedMoved = true;
+    revealObjectUnderBed();
+  }
 }
+
 
 function stopDrag() {
   document.removeEventListener('mousemove', drag);
   document.removeEventListener('mouseup', stopDrag);
   current = null;
 }
+
+// Fonction qui fait apparaître un objet caché sous le lit
+function revealObjectUnderBed() {
+  const hidden = document.createElement("img");
+  hidden.src = "   "; // <-- image de l'objet caché
+  hidden.alt = "caché";
+  hidden.className = "object"; 
+  hidden.style.position = "absolute";
+  hidden.style.left = bedStart.left + "px";
+  hidden.style.top = bedStart.top + "px";
+  hidden.style.width = "80px";
