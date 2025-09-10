@@ -51,7 +51,7 @@ function stopDrag() {
 // Fonction qui fait apparaître un objet caché sous le lit
 function revealObjectUnderBed() {
   const hidden = document.createElement("img");
-  hidden.src = "   "; // <-- image de l'objet caché
+  hidden.src = "binaire.png"; // <-- image de l'objet caché
   hidden.alt = "caché";
   hidden.className = "object"; 
   hidden.style.position = "absolute";
@@ -103,4 +103,5 @@ async function demarrerJeu() {
     console.error(err.message);
   }
 }
+
 
