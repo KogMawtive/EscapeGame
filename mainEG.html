@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/83d4615a65.js" crossorigin="anonymous"></script>
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
     <title>Escape Game - Mission Secrète</title>
   </head>
   <body>
-    <h1 style="text-align: center;">Escape Game</h1>
+    <header><h1 class="title">Escape Game</h1></header>
+
     <div class="section-game">
-      <div class="inventory" id="inventory">
-        <h3>Inventory</h3>
-        <div class="inv-list" id="inv-list"></div>
-      </div>
-      <div>
+      <div class="left-box">
         <div class="game-window" id="game">
           <div class="scene" id="scene">
             <!-- Entity -->
-            <div class="bed" id="bed"></div>
-            <div class="chest" id="chest"></div>
-            <div class="ice" id="ice"></div>
-            <div class="sun" id="sun"></div>
-            <div class="wall" id="wall"></div>
+            <div class="object bed"></div>
+            <div class="object chest"></div>
+            <!-- <div class="object ice"></div>
+            <div class="object sun"></div>
+            <div class="object wall"></div> -->
+            <img class="binaire" src="img/binaire.png" alt="Code binaire">
           </div>
         </div>
-        <p>Click to interact object to move around</p>
+        <div class="box-indice">
+          <p>Clicker avec votre souris pour intéragir des objets pour les faire bouger.</p>
+        </div>
       </div>
-      <div class="computer" id="computer">
-        <i class="fa-solid fa-laptop fa-8x"></i>
-        <form>
-          <label for="code">Enter the code:</label>
-          <input type="text" id="code" name="code">
-          <input type="submit" value="Submit">
-        </form>
+      
+      <div class="right-box">
+        <div class="inventory">
+          <h2 style="text-align: center;">Inventaire</h2>
+          <div class="inv-list" id="inv-list"></div>
+        </div>
+        <div class="computer" id="computer">
+          <i class="fa-solid fa-laptop fa-8x"></i>
+          <form id="code-form">
+            <label for="code">Entrer le code:</label>
+            <input type="text" id="code" name="code">
+            <input type="submit" value="Submit">
+          </form>
+          <p id="result-text"></p>
+        </div>
       </div>
+
     </div>
   </body>
 </html>
