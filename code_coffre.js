@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (userCode === secretCode) {
       // Succès
       const successMsg = document.createElement("p");
-      successMsg.textContent = "✅ Transfert stoppé, mission réussie !";
+      successMsg.textContent = "✅ code bon, transfert stoppé !";
       successMsg.style.color = "lime";
       successMsg.style.fontWeight = "bold";
       computer.appendChild(successMsg);
     } else {
       // Échec
       const errorMsg = document.createElement("p");
-      errorMsg.textContent = "❌ Code incorrect, réessaie.";
+      errorMsg.textContent = "❌ Code incorrect, réessaie. (indice : code binaire) ";
       errorMsg.style.color = "red";
       computer.appendChild(errorMsg);
     }
